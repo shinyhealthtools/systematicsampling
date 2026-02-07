@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systematic Sampling Calculator | Calculate K-Interval</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Simple and accurate systematic random sampling calculator. Calculate K-interval for your research with precision.">
+    <meta name="keywords" content="systematic sampling, random sampling, K-interval, sampling calculator, research methodology">
+    <meta name="author" content="Mudasir Mohammed Ibrahim">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Color palette */
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --primary-light: #4cc9f0;
+            --secondary: #7209b7;
+            --accent: #f72585;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            
+            /* Light theme */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 8px 30px rgba(67, 97, 238, 0.15);
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            
+            /* Border radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            
+            /* Transitions */
+            --transition: 0.3s ease;
+        }
+
+        .dark-mode {
+            /* Dark theme */
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #475569;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --hover-shadow: 0 8px 30px rgba(67, 97, 238, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color var(--transition), color var(--transition);
+            min-height: 100vh;
+            padding: var(--spacing-md);
+        }
+
+        /* Centered Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: var(--spacing-lg) 0;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-size: 0.95rem;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: all var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .theme-icon {
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .theme-text {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Calculator Grid */
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        @media (min-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-xl);
+            }
+        }
+
+        /* Input Panel */
+        .input-panel {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--card-shadow);
+            transition: all var(--transition);
+        }
+
+        .input-panel:hover {
+            box-shadow: var(--hover-shadow);
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .panel-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .panel-title h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .panel-title p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Input Groups */
+        .input-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .input-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .input-label i {
+            color: var(--primary);
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+            transition: all var(--transition);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .input-hint {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.25);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border-color);
+            transform: translateY(-2px);
+        }
+
+        /* Results Panel */
+        .results-panel {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--card-shadow);
+            transition: all var(--transition);
+        }
+
+        .results-panel:hover {
+            box-shadow: var(--hover-shadow);
+        }
+
+        .results-placeholder {
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            color: var(--text-secondary);
+        }
+
+        .results-placeholder i {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.3;
+        }
+
+        .results-placeholder h4 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.3rem;
+        }
+
+        .results-placeholder p {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Results Display */
+        .results-display {
+            display: none;
+        }
+
+        .results-display.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Result Cards */
+        .result-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            border-left: 4px solid var(--primary);
+        }
+
+        .result-card.success {
+            border-left-color: var(--success);
+        }
+
+        .result-card.warning {
+            border-left-color: var(--warning);
+        }
+
+        .result-card.accent {
+            border-left-color: var(--accent);
+        }
+
+        .result-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+
+        .result-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: var(--spacing-xs) 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .result-card .result-value {
+            color: var(--primary);
+        }
+
+        .result-card.success .result-value {
+            color: var(--success);
+        }
+
+        .result-card.warning .result-value {
+            color: var(--warning);
+        }
+
+        .result-card.accent .result-value {
+            color: var(--accent);
+        }
+
+        .result-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Sampling Details */
+        .sampling-details {
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: var(--spacing-sm);
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-md);
+        }
+
+        .detail-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--primary);
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Formula Display */
+        .formula-display {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .formula-title {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .formula-equation {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin: var(--spacing-xs) 0;
+            padding: var(--spacing-sm);
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            text-align: center;
+        }
+
+        .formula-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xl);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .developer-info {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .developer-name {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .developer-name:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-primary);
+            border-left: 4px solid var(--success);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--card-shadow);
+            display: none;
+            align-items: center;
+            gap: var(--spacing-sm);
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+            max-width: 400px;
+        }
+
+        .toast.error {
+            border-left-color: var(--danger);
+        }
+
+        .toast.warning {
+            border-left-color: var(--warning);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: var(--spacing-sm);
+            }
+            
+            .container {
+                max-width: 100%;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .theme-toggle {
+                position: static;
+                margin: 0 auto var(--spacing-md);
+                width: fit-content;
+            }
+            
+            header {
+                padding-top: var(--spacing-md);
+            }
+            
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .toast {
+                left: var(--spacing-sm);
+                right: var(--spacing-sm);
+                bottom: var(--spacing-sm);
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .input-panel, .results-panel {
+                padding: var(--spacing-md);
+            }
+            
+            .result-value {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Container -->
+    <div class="container">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="themeToggle">
+            <div class="theme-icon" id="themeIcon">
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="theme-text" id="themeText">Dark Mode</div>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Systematic Sampling Calculator</h1>
+                    <p>Calculate K-interval for systematic random sampling</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Calculator -->
+        <div class="calculator-grid">
+            <!-- Input Panel -->
+            <div class="input-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <div class="panel-title">
+                        <h3>Input Parameters</h3>
+                        <p>Enter your population and sample details</p>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">
+                        <i class="fas fa-users"></i>
+                        Population Size (N)
+                    </label>
+                    <input type="number" id="populationSize" placeholder="e.g., 1000" min="1" value="1000">
+                    <div class="input-hint">Total number of elements in your population</div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">
+                        <i class="fas fa-chart-pie"></i>
+                        Sample Size (n)
+                    </label>
+                    <input type="number" id="sampleSize" placeholder="e.g., 100" min="1" value="100">
+                    <div class="input-hint">Number of elements to be sampled</div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">
+                        <i class="fas fa-dice"></i>
+                        Random Start
+                        <span style="font-weight: normal; color: var(--text-secondary);">(optional)</span>
+                    </label>
+                    <input type="number" id="randomStart" placeholder="Auto-generated" min="1">
+                    <div class="input-hint">Leave empty for random generation between 1 and K</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="calculateBtn">
+                        <i class="fas fa-calculator"></i>
+                        Calculate K-Interval
+                    </button>
+                    <button class="btn btn-secondary" id="resetBtn">
+                        <i class="fas fa-redo"></i>
+                        Reset
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="results-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="panel-title">
+                        <h3>Results</h3>
+                        <p>Sampling interval and details</p>
+                    </div>
+                </div>
+
+                <!-- Results Placeholder -->
+                <div class="results-placeholder" id="resultsPlaceholder">
+                    <i class="fas fa-chart-bar"></i>
+                    <h4>Ready to Calculate</h4>
+                    <p>Enter your parameters and click "Calculate K-Interval" to see results here</p>
+                </div>
+
+                <!-- Results Display -->
+                <div class="results-display" id="resultsDisplay">
+                    <!-- K-Interval Result -->
+                    <div class="result-card success">
+                        <div class="result-title">
+                            <i class="fas fa-ruler-combined"></i>
+                            Sampling Interval (K)
+                        </div>
+                        <div class="result-value" id="kIntervalValue">0</div>
+                        <div class="result-description" id="kIntervalDescription">
+                            Every K-th element will be selected from your population
+                        </div>
+                    </div>
+
+                    <!-- Random Start Result -->
+                    <div class="result-card">
+                        <div class="result-title">
+                            <i class="fas fa-dice"></i>
+                            Random Start Point
+                        </div>
+                        <div class="result-value" id="startPointValue">0</div>
+                        <div class="result-description" id="startPointDescription">
+                            First element selected in your systematic sample
+                        </div>
+                    </div>
+
+                    <!-- Coverage Result -->
+                    <div class="result-card accent">
+                        <div class="result-title">
+                            <i class="fas fa-percentage"></i>
+                            Sampling Coverage
+                        </div>
+                        <div class="result-value" id="coverageValue">0%</div>
+                        <div class="result-description" id="coverageDescription">
+                            Percentage of population included in your sample
+                        </div>
+                    </div>
+
+                    <!-- Sampling Details -->
+                    <div class="sampling-details">
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <div class="detail-value" id="totalElements">0</div>
+                                <div class="detail-label">Total Elements</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-value" id="samplesSelected">0</div>
+                                <div class="detail-label">Samples Selected</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formula Display -->
+                    <div class="formula-display">
+                        <div class="formula-title">
+                            <i class="fas fa-square-root-alt"></i>
+                            Formula Used
+                        </div>
+                        <div class="formula-equation">K = N ÷ n</div>
+                        <div class="formula-explanation">
+                            Where K is the sampling interval, N is the population size, 
+                            and n is the sample size. The result is rounded down to the 
+                            nearest whole number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="developer-info">
+                Developed by 
+                <a href="https://www.mudasiribrahim.com/" target="_blank" class="developer-name" rel="noopener">
+                    Mudasir Mohammed Ibrahim
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Systematic Sampling Calculator. A focused tool for researchers.
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Calculation completed successfully!</span>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const body = document.body;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('systematicSamplerTheme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeIcon.innerHTML = '<i class="fas fa-sun"></i>';
+            themeText.textContent = 'Light Mode';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.innerHTML = '<i class="fas fa-sun"></i>';
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('systematicSamplerTheme', 'dark');
+            } else {
+                themeIcon.innerHTML = '<i class="fas fa-moon"></i>';
+                themeText.textContent = 'Dark Mode';
+                localStorage.setItem('systematicSamplerTheme', 'light');
+            }
+        });
+
+        // Toast Notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toast.className = 'toast';
+            toast.classList.add(type);
+            toastMessage.textContent = message;
+            toast.style.display = 'flex';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        // Format number with commas
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Generate random number between min and max
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Calculate K-Interval
+        function calculateKInterval(N, n) {
+            return Math.floor(N / n);
+        }
+
+        // Generate systematic sample
+        function generateSystematicSample(N, n, randomStart = null) {
+            const K = calculateKInterval(N, n);
+            const start = randomStart || getRandomInt(1, K);
+            const samples = [];
+            
+            for (let i = 0; i < n; i++) {
+                const sampleId = start + (i * K);
+                if (sampleId <= N) {
+                    samples.push(sampleId);
+                }
+            }
+            
+            return {
+                K: K,
+                start: start,
+                samples: samples,
+                coverage: (samples.length / N) * 100
+            };
+        }
+
+        // Main Calculate Function
+        function calculateSampling() {
+            const N = parseInt(document.getElementById('populationSize').value) || 0;
+            const n = parseInt(document.getElementById('sampleSize').value) || 0;
+            const randomStartInput = document.getElementById('randomStart').value;
+            const randomStart = randomStartInput ? parseInt(randomStartInput) : null;
+            
+            // Validation
+            if (!N || !n) {
+                showToast('Please enter both population and sample size', 'error');
+                return;
+            }
+            
+            if (n > N) {
+                showToast('Sample size cannot exceed population size', 'error');
+                return;
+            }
+            
+            if (n <= 0 || N <= 0) {
+                showToast('Values must be greater than zero', 'error');
+                return;
+            }
+            
+            // Calculate K-interval
+            const K = calculateKInterval(N, n);
+            
+            // Validate random start if provided
+            if (randomStart && (randomStart < 1 || randomStart > K)) {
+                showToast(`Random start must be between 1 and ${K}`, 'error');
+                return;
+            }
+            
+            // Generate systematic sample
+            const result = generateSystematicSample(N, n, randomStart);
+            
+            // Update results display
+            document.getElementById('kIntervalValue').textContent = formatNumber(K);
+            document.getElementById('kIntervalDescription').textContent = 
+                `Every ${formatNumber(K)}-th element will be selected from your population of ${formatNumber(N)} elements.`;
+            
+            document.getElementById('startPointValue').textContent = formatNumber(result.start);
+            document.getElementById('startPointDescription').textContent = 
+                `The first element selected ${randomStart ? 'as specified' : 'at random'} from the first ${formatNumber(K)} elements.`;
+            
+            document.getElementById('coverageValue').textContent = result.coverage.toFixed(1) + '%';
+            document.getElementById('coverageDescription').textContent = 
+                `${result.samples.length} out of ${formatNumber(N)} elements (${result.coverage.toFixed(1)}%) will be sampled.`;
+            
+            // Update detail stats
+            document.getElementById('totalElements').textContent = formatNumber(N);
+            document.getElementById('samplesSelected').textContent = formatNumber(result.samples.length);
+            
+            // Show results
+            document.getElementById('resultsPlaceholder').style.display = 'none';
+            document.getElementById('resultsDisplay').classList.add('active');
+            
+            // Show success toast
+            showToast(`K-interval calculated: ${formatNumber(K)}. ${result.samples.length} samples selected.`);
+            
+            // Save to localStorage for persistence
+            saveCalculation(N, n, K, result.start, result.samples.length);
+            
+            // Log sample IDs for reference
+            console.log('Selected sample IDs:', result.samples);
+        }
+
+        // Save calculation to localStorage
+        function saveCalculation(N, n, K, start, sampleCount) {
+            const calculations = JSON.parse(localStorage.getItem('samplingCalculations') || '[]');
+            calculations.unshift({
+                timestamp: new Date().toISOString(),
+                population: N,
+                sampleSize: n,
+                kInterval: K,
+                startPoint: start,
+                sampleCount: sampleCount,
+                coverage: ((sampleCount / N) * 100).toFixed(1)
+            });
+            
+            // Keep only last 5 calculations
+            if (calculations.length > 5) {
+                calculations.pop();
+            }
+            
+            localStorage.setItem('samplingCalculations', JSON.stringify(calculations));
+        }
+
+        // Reset all inputs
+        function resetAll() {
+            document.getElementById('populationSize').value = '1000';
+            document.getElementById('sampleSize').value = '100';
+            document.getElementById('randomStart').value = '';
+            
+            // Hide results
+            document.getElementById('resultsPlaceholder').style.display = 'block';
+            document.getElementById('resultsDisplay').classList.remove('active');
+            
+            showToast('All inputs have been reset', 'warning');
+        }
+
+        // Event Listeners
+        document.getElementById('calculateBtn').addEventListener('click', calculateSampling);
+        document.getElementById('resetBtn').addEventListener('click', resetAll);
+
+        // Enter key support for inputs
+        const inputs = ['populationSize', 'sampleSize', 'randomStart'];
+        inputs.forEach(inputId => {
+            document.getElementById(inputId).addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') calculateSampling();
+            });
+        });
+
+        // Initialize with sample data on load
+        window.addEventListener('load', () => {
+            // Check for previous calculation
+            const calculations = JSON.parse(localStorage.getItem('samplingCalculations') || '[]');
+            if (calculations.length > 0) {
+                const lastCalc = calculations[0];
+                document.getElementById('populationSize').value = lastCalc.population;
+                document.getElementById('sampleSize').value = lastCalc.sampleSize;
+                
+                // Auto-calculate if both values are present
+                if (lastCalc.population && lastCalc.sampleSize) {
+                    setTimeout(calculateSampling, 300);
+                }
+            }
+            
+            // Show welcome message
+            setTimeout(() => {
+                showToast('Welcome! Enter your parameters to calculate the K-interval for systematic sampling.');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
