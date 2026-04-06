@@ -1,1438 +1,1183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Systematic Sampling Calculator: Calculate K-Interval for Systematic Random Sampling</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="title" content="Systematic Sampling Calculator - K-Interval Calculator for Research">
-    <meta name="description" content="Free online systematic sampling calculator for research and analysis. Calculate K-interval, sampling interval, and systematic random sampling parameters with precision. Perfect for researchers, statisticians, and students.">
-    <meta name="keywords" content="systematic sampling calculator, K-interval calculator, sampling interval, random sampling, research tools, statistics calculator, sample size calculator, systematic random sampling, research methodology, statistical analysis">
-    <meta name="theme-color" content="#4361ee">
-    <meta name="author" content="Mudasir Mohammed Ibrahim">
-    
-    <!-- Cache Control -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://shinyhealthtools.github.io/systematicsampling/">
-    
-    <!-- Robots -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:site_name" content="Systematic Sampling Calculator">
-    <meta property="og:title" content="Systematic Sampling Calculator - Free K-Interval Calculator">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://shinyhealthtools.github.io/systematicsampling/">
-    <meta property="og:description" content="Free online systematic sampling calculator for research and analysis. Calculate K-interval, sampling interval, and systematic random sampling parameters with precision.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/mudassiribrahim12/Stats/main/favicon-32x32.png">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://shinyhealthtools.github.io/systematicsampling/">
-    <meta property="twitter:title" content="Systematic Sampling Calculator - Free K-Interval Calculator">
-    <meta property="twitter:description" content="Free online systematic sampling calculator for research and analysis. Calculate K-interval, sampling interval, and systematic random sampling parameters with precision.">
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/mudassiribrahim12/Stats/main/favicon-32x32.png">
-    
-    <meta name="google-site-verification" content="wziTcVA66OowBWGGGHsar8ky99roP427M_3ZTu8x1sI" />
-    
-    <!-- JSON-LD Schema Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "@id": "https://shinyhealthtools.github.io/systematicsampling/#webapp",
-        "name": "Systematic Sampling Calculator",
-        "url": "https://shinyhealthtools.github.io/systematicsampling/",
-        "description": "Free online systematic sampling calculator for research and analysis. Calculate K-interval, sampling interval, and systematic random sampling parameters.",
-        "applicationCategory": "StatisticalAnalysisApplication",
-        "operatingSystem": "Any",
-        "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
-        "softwareVersion": "1.0.0",
-        "featureList": [
-            "K-Interval Calculator",
-            "Systematic Random Sampling",
-            "Sampling Interval Calculation",
-            "Random Start Generation",
-            "Sampling Coverage Analysis"
-        ],
-        "screenshot": "https://raw.githubusercontent.com/mudassiribrahim12/Stats/main/favicon-32x32.png",
-        "author": {
-            "@type": "Person",
-            "name": "Mudasir Mohammed Ibrahim",
-            "url": "https://mudasiribrahim.github.io/gh/",
-            "jobTitle": "Health Researcher and Registered Nurse",
-            "knowsAbout": ["Healthcare Research", "Statistical Analysis", "Sampling Methods"]
-        },
-        "publisher": {
-            "@type": "Organization",
-            "@id": "https://shinyhealthtools.github.io/systematicsampling/#organization",
-            "name": "Systematic Sampling Calculator",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://raw.githubusercontent.com/mudassiribrahim12/Stats/main/favicon-32x32.png"
-            }
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "inLanguage": "en"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Systematic Sampling Calculator</title>
+  
+    <meta name="description" content="SysSampler: Professional systematic sampling calculator. Compute sampling interval (K), random start, coverage, and exact sample sequence. Ideal for clinical audits, epidemiological surveys, quality control, and research — no coding required.">
+  <meta name="keywords" content="systematic sampling, sampling interval, population sampling, random start, coverage calculation, sample sequence, audit sampling, research tools, epidemiological methods, survey sampling, K-interval, SysSampler">
+  
+  <meta name="google-site-verification" content="wziTcVA66OowBWGGGHsar8ky99roP427M_3ZTu8x1sI" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Berkeley+Mono&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f6f8fa;
+      --bg-card: #ffffff;
+      --border: #d0d7de;
+      --border-muted: #eaeef2;
+      --text: #1f2328;
+      --text-muted: #656d76;
+      --text-faint: #9198a1;
+      --accent: #0969da;
+      --accent-hover: #0550ae;
+      --accent-subtle: #ddf4ff;
+      --accent-emphasis: #0969da;
+      --success: #1a7f37;
+      --success-subtle: #dafbe1;
+      --danger: #d1242f;
+      --danger-subtle: #fff0ee;
+      --warning: #9a6700;
+      --warning-subtle: #fff8c5;
+      --shadow-sm: 0 1px 0 rgba(31,35,40,0.04);
+      --shadow-md: 0 3px 6px rgba(140,149,159,0.15);
+      --shadow-lg: 0 8px 24px rgba(140,149,159,0.2);
+      --mono: 'Berkeley Mono', 'Cascadia Code', 'Fira Code', monospace;
+      --sans: 'Geist', -apple-system, sans-serif;
+      --radius: 6px;
+      --radius-lg: 12px;
+      --transition: 0.15s cubic-bezier(0.16,1,0.3,1);
     }
-    </script>
 
-    <meta name="google-site-verification" content="PGq_oDNzKGPvdcDK-DzNc2VYrCckkJxWLyiqq7OdHq0"/>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "@id": "https://shinyhealthtools.github.io/systematicsampling/#software",
-        "name": "Systematic Sampling Calculator",
-        "url": "https://shinyhealthtools.github.io/systematicsampling/",
-        "description": "K-interval calculator for systematic random sampling in research",
-        "applicationCategory": "StatisticalAnalysisApplication",
-        "operatingSystem": "Web",
-        "softwareVersion": "1.0.0",
-        "featureList": [
-            "Systematic Sampling K-Interval",
-            "Random Start Point Generator",
-            "Sampling Coverage Calculator",
-            "Formula Explanation",
-            "Auto-calculation"
-        ],
-        "author": {
-            "@type": "Person",
-            "@id": "https://mudasiribrahim.github.io/gh/#person",
-            "name": "Mudasir Mohammed Ibrahim",
-            "url": "https://mudasiribrahim.github.io/gh/",
-            "sameAs": [
-                "https://orcid.org/0000-0002-9049-8222",
-                "https://scholar.google.com/citations?user=xEFzAvgAAAAJ&hl=en",
-                "https://github.com/mudassiribrahim30"
-            ]
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
+    [data-theme="dark"] {
+      --bg: #0d1117;
+      --bg-subtle: #161b22;
+      --bg-card: #161b22;
+      --border: #30363d;
+      --border-muted: #21262d;
+      --text: #e6edf3;
+      --text-muted: #7d8590;
+      --text-faint: #484f58;
+      --accent: #58a6ff;
+      --accent-hover: #79c0ff;
+      --accent-subtle: #0d2d6b;
+      --success: #3fb950;
+      --success-subtle: #0f2a1a;
+      --danger: #f85149;
+      --danger-subtle: #2d1117;
+      --warning: #d29922;
+      --warning-subtle: #2d2112;
+      --shadow-sm: 0 1px 0 rgba(0,0,0,0.3);
+      --shadow-md: 0 3px 6px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
     }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://shinyhealthtools.github.io/systematicsampling/#website",
-        "url": "https://shinyhealthtools.github.io/systematicsampling/",
-        "name": "Systematic Sampling Calculator",
-        "description": "Free K-interval calculator for systematic random sampling",
-        "publisher": {
-            "@id": "https://shinyhealthtools.github.io/systematicsampling/#organization"
-        },
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://shinyhealthtools.github.io/systematicsampling/?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        },
-        "inLanguage": "en"
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.5;
+      transition: background var(--transition), color var(--transition);
+      min-height: 100vh;
     }
-    </script>
 
-    <!-- Fonts & Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    /* ─── NAVBAR ─── */
+    .navbar {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-brand svg {
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .nav-pills {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+
+    .nav-pill:hover, .nav-pill.active {
+      background: var(--bg-subtle);
+      color: var(--text);
+    }
+
+    .nav-pill.active {
+      color: var(--accent);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
     
-    <style>
-        :root {
-            /* Color palette */
-            --primary: #4361ee;
-            --primary-dark: #3a56d4;
-            --primary-light: #4cc9f0;
-            --secondary: #7209b7;
-            --accent: #f72585;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            
-            /* Light theme */
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #f1f5f9;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --border-color: #e2e8f0;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --hover-shadow: 0 8px 30px rgba(67, 97, 238, 0.15);
-            
-            /* Spacing */
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            
-            /* Border radius */
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            
-            /* Transitions */
-            --transition: 0.3s ease;
-        }
-
-        .dark-mode {
-            /* Dark theme */
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --border-color: #475569;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            --hover-shadow: 0 8px 30px rgba(67, 97, 238, 0.25);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            transition: background-color var(--transition), color var(--transition);
-            min-height: 100vh;
-            padding: var(--spacing-md);
-        }
-
-        /* Centered Container */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: var(--spacing-lg) 0;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .logo-text h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-        }
-
-        .logo-text p {
-            color: var(--text-secondary);
-            margin-top: 4px;
-            font-size: 0.95rem;
-        }
-
-        /* Calculator Grid */
-        .calculator-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        @media (min-width: 768px) {
-            .calculator-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: var(--spacing-xl);
-            }
-        }
-
-        /* Input Panel */
-        .input-panel {
-            background: var(--bg-secondary);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            box-shadow: var(--card-shadow);
-            transition: all var(--transition);
-        }
-
-        .input-panel:hover {
-            box-shadow: var(--hover-shadow);
-        }
-
-        .panel-header {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .panel-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.3rem;
-        }
-
-        .panel-title h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .panel-title p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Input Groups */
-        .input-group {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .input-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .input-label i {
-            color: var(--primary);
-        }
-
-        input {
-            width: 100%;
-            padding: 14px 16px;
-            background: var(--bg-primary);
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-md);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            color: var(--text-primary);
-            transition: all var(--transition);
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
-        }
-
-        .input-hint {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 6px;
-            font-style: italic;
-        }
-
-        /* Ceiling Option */
-        .ceiling-option {
-            margin: var(--spacing-md) 0;
-            padding: var(--spacing-md);
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border-color);
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-        }
-
-        .checkbox-group label {
-            font-weight: 500;
-            color: var(--text-primary);
-            cursor: pointer;
-        }
-
-        .ceiling-explanation {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 6px;
-            padding-left: 28px;
-            font-style: italic;
-        }
-
-        /* Action Buttons */
-        .action-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-lg);
-        }
-
-        .btn {
-            padding: 14px 20px;
-            border: none;
-            border-radius: var(--radius-md);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all var(--transition);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.25);
-        }
-
-        .btn-secondary {
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            border: 2px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border-color);
-            transform: translateY(-2px);
-        }
-
-        .btn-tertiary {
-            background: var(--bg-secondary);
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            margin-top: var(--spacing-sm);
-        }
-
-        .btn-tertiary:hover {
-            background: rgba(67, 97, 238, 0.1);
-        }
-
-        /* Results Panel */
-        .results-panel {
-            background: var(--bg-secondary);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            box-shadow: var(--card-shadow);
-            transition: all var(--transition);
-        }
-
-        .results-panel:hover {
-            box-shadow: var(--hover-shadow);
-        }
-
-        .results-placeholder {
-            text-align: center;
-            padding: var(--spacing-xl) var(--spacing-lg);
-            color: var(--text-secondary);
-        }
-
-        .results-placeholder i {
-            font-size: 3.5rem;
-            margin-bottom: var(--spacing-md);
-            opacity: 0.3;
-        }
-
-        .results-placeholder h4 {
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.3rem;
-        }
-
-        .results-placeholder p {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        /* Results Display */
-        .results-display {
-            display: none;
-        }
-
-        .results-display.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Result Cards */
-        .result-card {
-            background: var(--bg-primary);
-            border-radius: var(--radius-md);
-            padding: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-            border-left: 4px solid var(--primary);
-        }
-
-        .result-card.success {
-            border-left-color: var(--success);
-        }
-
-        .result-card.warning {
-            border-left-color: var(--warning);
-        }
-
-        .result-card.accent {
-            border-left-color: var(--accent);
-        }
-
-        .result-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: var(--spacing-xs);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-secondary);
-        }
-
-        .result-value {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin: var(--spacing-xs) 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .result-card .result-value {
-            color: var(--primary);
-        }
-
-        .result-card.success .result-value {
-            color: var(--success);
-        }
-
-        .result-card.warning .result-value {
-            color: var(--warning);
-        }
-
-        .result-card.accent .result-value {
-            color: var(--accent);
-        }
-
-        .result-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Calculation Steps */
-        .calculation-steps {
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            padding: var(--spacing-md);
-            margin-top: var(--spacing-lg);
-            border: 1px solid var(--border-color);
-            display: none;
-        }
-
-        .calculation-steps.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .steps-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .steps-title {
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .steps-content {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        .step {
-            margin-bottom: var(--spacing-sm);
-            padding-left: var(--spacing-md);
-            position: relative;
-        }
-
-        .step-number {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 24px;
-            height: 24px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .step-content {
-            margin-left: 10px;
-        }
-
-        .step-equation {
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            margin: 4px 0;
-            padding: 8px 12px;
-            background: var(--bg-primary);
-            border-radius: var(--radius-sm);
-            border-left: 3px solid var(--primary);
-        }
-
-        .step-note {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
-            font-style: italic;
-        }
-
-        /* Sampling Details */
-        .sampling-details {
-            margin-top: var(--spacing-lg);
-            padding-top: var(--spacing-md);
-            border-top: 1px solid var(--border-color);
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-md);
-        }
-
-        .detail-item {
-            text-align: center;
-            padding: var(--spacing-sm);
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-        }
-
-        .detail-value {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--primary);
-        }
-
-        .detail-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        /* Formula Display */
-        .formula-display {
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            padding: var(--spacing-md);
-            margin-top: var(--spacing-lg);
-            border: 1px solid var(--border-color);
-        }
-
-        .formula-title {
-            font-weight: 600;
-            margin-bottom: var(--spacing-xs);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .formula-equation {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            color: var(--text-primary);
-            margin: var(--spacing-xs) 0;
-            padding: var(--spacing-sm);
-            background: var(--bg-primary);
-            border-radius: var(--radius-sm);
-            text-align: center;
-        }
-
-        .formula-explanation {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: var(--spacing-xs);
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            position: absolute;
-            top: var(--spacing-lg);
-            right: var(--spacing-lg);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 10px 16px;
-            cursor: pointer;
-            transition: all var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .theme-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--card-shadow);
-        }
-
-        .theme-icon {
-            font-size: 1.1rem;
-            color: var(--primary);
-        }
-
-        .theme-text {
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: var(--spacing-lg) 0;
-            margin-top: var(--spacing-xl);
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .developer-info {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .developer-name {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            transition: color var(--transition);
-        }
-
-        .developer-name:hover {
-            color: var(--secondary);
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: var(--spacing-sm);
-        }
-
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--bg-primary);
-            border-left: 4px solid var(--success);
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: var(--radius-md);
-            box-shadow: var(--card-shadow);
-            display: none;
-            align-items: center;
-            gap: var(--spacing-sm);
-            z-index: 1000;
-            animation: slideIn 0.3s ease;
-            max-width: 400px;
-        }
-
-        .toast.error {
-            border-left-color: var(--danger);
-        }
-
-        .toast.warning {
-            border-left-color: var(--warning);
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body {
-                padding: var(--spacing-sm);
-            }
-            
-            .container {
-                max-width: 100%;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.8rem;
-            }
-            
-            .theme-toggle {
-                position: static;
-                margin: 0 auto var(--spacing-md);
-                width: fit-content;
-            }
-            
-            header {
-                padding-top: var(--spacing-md);
-            }
-            
-            .action-buttons {
-                grid-template-columns: 1fr;
-            }
-            
-            .details-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .toast {
-                left: var(--spacing-sm);
-                right: var(--spacing-sm);
-                bottom: var(--spacing-sm);
-                max-width: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.6rem;
-            }
-            
-            .input-panel, .results-panel {
-                padding: var(--spacing-md);
-            }
-            
-            .result-value {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+        .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 12px;
+      transition: color var(--transition);
+    }
+
+    .footer-link:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer-sep {
+      color: var(--text-faint);
+      font-size: 12px;
+    }
+
+    .footer-credit a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color var(--transition);
+    }
+
+    .footer-credit a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* Theme Toggle — the star of the show */
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-subtle);
+    }
+
+    .theme-toggle .icon-sun,
+    .theme-toggle .icon-moon {
+      position: absolute;
+      transition: transform 0.4s cubic-bezier(0.68,-0.55,0.27,1.55), opacity 0.3s;
+    }
+
+    [data-theme="light"] .icon-sun { transform: scale(1) rotate(0deg); opacity: 1; }
+    [data-theme="light"] .icon-moon { transform: scale(0) rotate(90deg); opacity: 0; }
+    [data-theme="dark"] .icon-moon { transform: scale(1) rotate(0deg); opacity: 1; }
+    [data-theme="dark"] .icon-sun { transform: scale(0) rotate(-90deg); opacity: 0; }
+
+    .btn-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      color: var(--text);
+      transition: all var(--transition);
+    }
+
+    .btn-nav:hover {
+      background: var(--border-muted);
+      border-color: var(--text-faint);
+    }
+
+    /* ─── LAYOUT ─── */
+    .page-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    /* ─── REPO HEADER ─── */
+    .repo-header {
+      margin-bottom: 28px;
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .repo-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .repo-breadcrumb a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .repo-breadcrumb a:hover { text-decoration: underline; }
+
+    .repo-breadcrumb .sep {
+      color: var(--text-faint);
+      font-weight: 300;
+    }
+
+    .repo-breadcrumb .repo-name {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .repo-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+    }
+
+    .badge.public { color: var(--success); border-color: var(--success); background: var(--success-subtle); }
+    .badge.lang { color: var(--warning); border-color: currentColor; background: var(--warning-subtle); }
+
+    .repo-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 620px;
+      margin-bottom: 16px;
+    }
+
+    .repo-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      color: var(--text);
+      transition: all var(--transition);
+    }
+
+    .btn:hover { background: var(--border-muted); }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
+    .counter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      padding: 0 6px;
+      height: 18px;
+      background: var(--border-muted);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .btn-primary .counter { background: rgba(255,255,255,0.25); color: #fff; }
+
+    /* ─── TAB BAR ─── */
+    .tab-bar {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+      gap: 0;
+      overflow-x: auto;
+      animation: fadeUp 0.4s 0.05s ease both;
+    }
+
+    .tab {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      white-space: nowrap;
+      transition: all var(--transition);
+    }
+
+    .tab:hover { color: var(--text); background: var(--bg-subtle); }
+
+    .tab.active {
+      color: var(--text);
+      border-bottom-color: #fd8c73;
+      font-weight: 600;
+    }
+
+    /* ─── MAIN GRID ─── */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 680px;
+      margin: 0 auto;
+      animation: fadeUp 0.4s 0.1s ease both;
+    }
+
+    @media (max-width: 768px) {
+      .nav-pills { display: none; }
+    }
+
+    /* ─── CALCULATOR CARD ─── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+
+    .card:hover { border-color: var(--text-faint); }
+
+    .card-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-subtle);
+    }
+
+    .card-header-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .card-header-title svg { color: var(--accent); }
+
+    .card-body { padding: 20px; }
+
+    /* ─── FORM ELEMENTS ─── */
+    .field { margin-bottom: 16px; }
+
+    .field:last-child { margin-bottom: 0; }
+
+    .field label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .field label .optional {
+      font-weight: 400;
+      color: var(--text-faint);
+      font-size: 12px;
+    }
+
+    .field input[type="number"] {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 14px;
+      transition: all var(--transition);
+      outline: none;
+    }
+
+    .field input[type="number"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(9,105,218,0.12);
+    }
+
+    [data-theme="dark"] .field input[type="number"]:focus {
+      box-shadow: 0 0 0 3px rgba(88,166,255,0.12);
+    }
+
+    .field-hint {
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-top: 5px;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-muted);
+      background: var(--bg-subtle);
+      cursor: pointer;
+      transition: border-color var(--transition);
+    }
+
+    .checkbox-row:hover { border-color: var(--border); }
+
+    .checkbox-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin-top: 1px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .checkbox-label { font-size: 13px; }
+    .checkbox-label strong { font-weight: 600; display: block; }
+    .checkbox-label span { color: var(--text-muted); font-size: 12px; }
+
+    /* ─── BUTTON ROW ─── */
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .btn-row .btn { flex: 1; justify-content: center; padding: 8px; }
+
+    /* ─── RESULTS ─── */
+    .results-area { margin-top: 20px; }
+
+    .result-placeholder {
+      padding: 32px 20px;
+      text-align: center;
+      color: var(--text-faint);
+    }
+
+    .result-placeholder svg { margin-bottom: 8px; opacity: 0.4; }
+    .result-placeholder p { font-size: 13px; }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .result-item {
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-muted);
+      background: var(--bg-subtle);
+      transition: transform 0.2s ease;
+      animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+
+    .result-item:nth-child(2) { animation-delay: 0.05s; }
+    .result-item:nth-child(3) { animation-delay: 0.1s; }
+    .result-item:nth-child(4) { animation-delay: 0.15s; }
+
+    .result-item:hover { transform: translateY(-2px); }
+
+    .result-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-faint);
+      margin-bottom: 6px;
+    }
+
+    .result-val {
+      font-family: var(--mono);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .result-val.success { color: var(--success); }
+    .result-val.warn { color: var(--warning); }
+
+    .result-sub {
+      font-size: 11px;
+      color: var(--text-faint);
+    }
+
+    /* ─── STEPS ─── */
+    .steps-card {
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .steps-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: var(--bg-subtle);
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid transparent;
+      transition: all var(--transition);
+    }
+
+    .steps-header:hover { background: var(--border-muted); }
+
+    .steps-header.open { border-bottom-color: var(--border-muted); }
+
+    .steps-header-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .steps-chevron {
+      color: var(--text-faint);
+      transition: transform 0.3s;
+    }
+
+    .steps-header.open .steps-chevron { transform: rotate(90deg); }
+
+    .steps-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .steps-body.open { max-height: 600px; }
+
+    .step-row {
+      display: flex;
+      gap: 12px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-muted);
+      font-size: 13px;
+      animation: fadeRight 0.3s ease both;
+    }
+
+    .step-row:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-content p { color: var(--text-muted); margin-bottom: 4px; }
+
+    .step-eq {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 5px 10px;
+      background: var(--bg);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius);
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .step-note {
+      font-size: 11px;
+      color: var(--text-faint);
+      font-style: italic;
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+    .sidebar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      font-size: 13px;
+    }
+
+    .sidebar-card-header {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-muted);
+      font-weight: 600;
+      font-size: 13px;
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .sidebar-card-header svg { color: var(--accent); }
+
+    .sidebar-card-body { padding: 14px 16px; }
+
+    .stat-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border-muted);
+    }
+
+    .stat-row:last-child { border-bottom: none; }
+
+    .stat-label {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stat-val {
+      font-family: var(--mono);
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #f1e05a;
+      flex-shrink: 0;
+    }
+
+    .dot.green { background: #3fb950; }
+    .dot.blue { background: var(--accent); }
+
+    .formula-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius);
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .formula-box .formula-eq {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+      color: var(--accent);
+      margin: 6px 0;
+    }
+
+    .formula-box .formula-desc {
+      font-size: 11px;
+      color: var(--text-faint);
+      line-height: 1.6;
+    }
+
+    .link-list { display: flex; flex-direction: column; gap: 2px; }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: var(--radius);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+      transition: background var(--transition);
+    }
+
+    .link-item:hover { background: var(--accent-subtle); }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-top: 48px;
+    }
+
+    .footer-copy { font-family: var(--mono); }
+
+    .footer-credit a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color var(--transition);
+    }
+
+    .footer-credit a:hover { color: var(--accent-hover); }
+
+    /* ─── TOAST ─── */
+    .toast-wrap {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 999;
+      pointer-events: none;
+    }
+
+    .toast {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-lg);
+      font-size: 13px;
+      max-width: 320px;
+      pointer-events: all;
+      animation: slideToast 0.3s cubic-bezier(0.16,1,0.3,1) both;
+    }
+
+    .toast.success { border-left: 3px solid var(--success); }
+    .toast.error { border-left: 3px solid var(--danger); }
+    .toast.info { border-left: 3px solid var(--accent); }
+
+    .toast-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .toast-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
+    .toast-text span { color: var(--text-muted); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeRight {
+      from { opacity: 0; transform: translateX(-8px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideToast {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ─── COMMIT STRIP ─── */
+    .commit-strip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-muted);
+      background: var(--bg-subtle);
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .commit-avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fd8c73, #b87cf6);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .commit-msg { color: var(--text); font-weight: 500; }
+    .commit-hash { font-family: var(--mono); color: var(--accent); }
+
+    /* Tag */
+    .tag {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--accent-subtle);
+      color: var(--accent);
+      border: 1px solid rgba(9,105,218,0.3);
+    }
+
+    [data-theme="dark"] .tag {
+      border-color: rgba(88,166,255,0.3);
+    }
+  </style>
 </head>
 <body>
-    <!-- Container -->
-    <div class="container">
-        <!-- Theme Toggle -->
-        <div class="theme-toggle" id="themeToggle">
-            <div class="theme-icon" id="themeIcon">
-                <i class="fas fa-moon"></i>
-            </div>
-            <div class="theme-text" id="themeText">Dark Mode</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a class="nav-brand" href="#">
+    Syssampler
+  </a>
+
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM8 0a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 8 0Zm0 13a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 13ZM2.343 2.343a.75.75 0 0 1 1.061 0l1.06 1.061a.75.75 0 0 1-1.06 1.06l-1.061-1.06a.75.75 0 0 1 0-1.061ZM12.536 11.475a.75.75 0 0 1 1.06 0l1.061 1.06a.75.75 0 0 1-1.06 1.061l-1.061-1.06a.75.75 0 0 1 0-1.061ZM0 8a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H.75A.75.75 0 0 1 0 8Zm13 0a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5h-1.5A.75.75 0 0 1 13 8ZM2.343 13.657a.75.75 0 0 1 0-1.06l1.06-1.061a.75.75 0 0 1 1.061 1.06l-1.06 1.061a.75.75 0 0 1-1.061 0ZM11.475 3.464a.75.75 0 0 1 0-1.06l1.06-1.061a.75.75 0 0 1 1.061 1.06l-1.06 1.061a.75.75 0 0 1-1.061 0Z"/></svg>
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M9.598 1.591a.749.749 0 0 1 .785-.175 7 7 0 1 1-8.967 8.967.75.75 0 0 1 .961-.96 5.5 5.5 0 0 0 7.046-7.046.75.75 0 0 1 .175-.786Z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="page-wrap">
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- CALCULATOR -->
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-title">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.5 2A1.5 1.5 0 0 0 2 3.5v9A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12.5 2Zm2.25 3.5h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM5 9.75A.75.75 0 0 1 5.75 9h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 9.75Z"/></svg>
+            Input Parameters
+          </div>
+          <span style="font-size:12px;color:var(--text-faint);">Auto-calculates on Enter</span>
         </div>
+        <div class="card-body">
+          <div class="field">
+            <label>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M10.5 5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM8 12a5.99 5.99 0 0 1-5.78-4.45A5.5 5.5 0 0 0 3.5 7.5h9a5.5 5.5 0 0 0 1.28.05A5.99 5.99 0 0 1 8 12Z"/></svg>
+              Population Size <code style="font-family:var(--mono);font-size:11px;background:var(--bg-subtle);padding:1px 5px;border-radius:4px;color:var(--text-faint);">N</code>
+            </label>
+            <input type="number" id="popSize" value="1000" min="1" placeholder="e.g. 1000">
+            <div class="field-hint">Total number of elements in your population</div>
+          </div>
 
-        <!-- Header -->
-        <header>
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>Systematic Sampling Calculator</h1>
-                    <p>Calculate K-interval for systematic random sampling</p>
-                </div>
+          <div class="field">
+            <label>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4Zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0Z"/></svg>
+              Sample Size <code style="font-family:var(--mono);font-size:11px;background:var(--bg-subtle);padding:1px 5px;border-radius:4px;color:var(--text-faint);">n</code>
+            </label>
+            <input type="number" id="sampSize" value="100" min="1" placeholder="e.g. 100">
+            <div class="field-hint">Number of elements to be sampled</div>
+          </div>
+
+          <div class="field">
+            <label>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.251.169a.75.75 0 0 1 .507.594l.083.83A1.51 1.51 0 0 1 12 2.5h.5a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75v-.62l-.082-.822a.25.25 0 0 0-.494.071l.072 1.449a.75.75 0 0 1-.75.75H9a.75.75 0 0 1 0-1.5h.575l-.063-1.263a1.75 1.75 0 0 1 1.74-1.846ZM5 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM4 9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm7.5-1a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"/></svg>
+              Random Start <span class="optional">— optional</span>
+            </label>
+            <input type="number" id="randStart" placeholder="Auto-generated between 1 and K" min="1">
+            <div class="field-hint">Leave empty to auto-generate within valid range</div>
+          </div>
+
+          <div class="field">
+            <label for="ceilCheck" style="cursor:default">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.28 6.78a.75.75 0 0 0-1.06-1.06L7.25 8.69 5.78 7.22a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.06 0l3.5-3.5Z"/><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-1.5 0a6.5 6.5 0 1 0-13 0 6.5 6.5 0 0 0 13 0Z"/></svg>
+              Rounding Options
+            </label>
+            <label class="checkbox-row" for="ceilCheck">
+              <input type="checkbox" id="ceilCheck">
+              <div class="checkbox-label">
+                <strong>Apply ceiling to K-interval</strong>
+                <span>Round decimal results up instead of down — e.g., K=2.4 becomes 3 instead of 2</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" id="calcBtn">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M3.5 2A1.5 1.5 0 0 0 2 3.5v9A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12.5 2Zm2.25 3.5h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM5 9.75A.75.75 0 0 1 5.75 9h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 9.75Z"/></svg>
+              Run calculation
+            </button>
+            <button class="btn" id="resetBtn">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z"/></svg>
+              Reset
+            </button>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="results-area" id="resultsArea">
+            <div class="result-placeholder" id="resPlaceholder">
+              <svg width="32" height="32" viewBox="0 0 16 16" fill="currentColor"><path d="M3.5 2A1.5 1.5 0 0 0 2 3.5v9A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12.5 2Zm2.25 3.5h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM5 9.75A.75.75 0 0 1 5.75 9h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 9.75Z"/></svg>
+              <p>Results will appear here after running the calculation</p>
             </div>
-        </header>
-
-        <!-- Main Calculator -->
-        <div class="calculator-grid">
-            <!-- Input Panel -->
-            <div class="input-panel">
-                <div class="panel-header">
-                    <div class="panel-icon">
-                        <i class="fas fa-sliders-h"></i>
-                    </div>
-                    <div class="panel-title">
-                        <h3>Input Parameters</h3>
-                        <p>Enter your population and sample details</p>
-                    </div>
+            <div id="resOutput" style="display:none">
+              <div class="result-grid">
+                <div class="result-item">
+                  <div class="result-label">K-Interval</div>
+                  <div class="result-val success" id="rK">—</div>
+                  <div class="result-sub" id="rKSub">Sampling interval</div>
                 </div>
-
-                <div class="input-group">
-                    <label class="input-label">
-                        <i class="fas fa-users"></i>
-                        Population Size (N)
-                    </label>
-                    <input type="number" id="populationSize" placeholder="e.g., 1000" min="1" value="1000">
-                    <div class="input-hint">Total number of elements in your population</div>
+                <div class="result-item">
+                  <div class="result-label">Random Start</div>
+                  <div class="result-val" id="rStart">—</div>
+                  <div class="result-sub" id="rStartSub">First selected element</div>
                 </div>
-
-                <div class="input-group">
-                    <label class="input-label">
-                        <i class="fas fa-chart-pie"></i>
-                        Sample Size (n)
-                    </label>
-                    <input type="number" id="sampleSize" placeholder="e.g., 100" min="1" value="100">
-                    <div class="input-hint">Number of elements to be sampled</div>
+                <div class="result-item">
+                  <div class="result-label">Samples Selected</div>
+                  <div class="result-val warn" id="rCount">—</div>
+                  <div class="result-sub" id="rCountSub">Elements in sample</div>
                 </div>
-
-                <div class="input-group">
-                    <label class="input-label">
-                        <i class="fas fa-dice"></i>
-                        Random Start
-                        <span style="font-weight: normal; color: var(--text-secondary);">(optional)</span>
-                    </label>
-                    <input type="number" id="randomStart" placeholder="Auto-generated" min="1">
-                    <div class="input-hint">Leave empty for random generation between 1 and K</div>
+                <div class="result-item">
+                  <div class="result-label">Coverage</div>
+                  <div class="result-val" id="rCov">—</div>
+                  <div class="result-sub" id="rCovSub">Of population sampled</div>
                 </div>
+              </div>
 
-                <!-- Ceiling Option -->
-                <div class="ceiling-option">
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="applyCeiling">
-                        <label for="applyCeiling">Apply ceiling to K-interval?</label>
-                    </div>
-                    <div class="ceiling-explanation">
-                        If K-interval calculation yields a decimal (e.g., 2.4), applying ceiling will round it up to the nearest whole number (e.g., 3)
-                    </div>
+              <!-- STEPS -->
+              <div class="steps-card">
+                <div class="steps-header" id="stepsToggle">
+                  <div class="steps-header-left">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 2.5h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm0 4h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 4h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z"/></svg>
+                    Calculation steps
+                  </div>
+                  <svg class="steps-chevron" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06Z"/></svg>
                 </div>
-
-                <div class="action-buttons">
-                    <button class="btn btn-primary" id="calculateBtn">
-                        <i class="fas fa-calculator"></i>
-                        Calculate K-Interval
-                    </button>
-                    <button class="btn btn-secondary" id="resetBtn">
-                        <i class="fas fa-redo"></i>
-                        Reset
-                    </button>
+                <div class="steps-body" id="stepsBody">
+                  <div id="stepsList"></div>
                 </div>
+              </div>
             </div>
-
-            <!-- Results Panel -->
-            <div class="results-panel">
-                <div class="panel-header">
-                    <div class="panel-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="panel-title">
-                        <h3>Results</h3>
-                        <p>Sampling interval and details</p>
-                    </div>
-                </div>
-
-                <!-- Results Placeholder -->
-                <div class="results-placeholder" id="resultsPlaceholder">
-                    <i class="fas fa-chart-bar"></i>
-                    <h4>Ready to Calculate</h4>
-                    <p>Enter your parameters and click "Calculate K-Interval" to see results here</p>
-                </div>
-
-                <!-- Results Display -->
-                <div class="results-display" id="resultsDisplay">
-                    <!-- K-Interval Result -->
-                    <div class="result-card success">
-                        <div class="result-title">
-                            <i class="fas fa-ruler-combined"></i>
-                            Sampling Interval (K)
-                        </div>
-                        <div class="result-value" id="kIntervalValue">0</div>
-                        <div class="result-description" id="kIntervalDescription">
-                            Every K-th element will be selected from your population
-                        </div>
-                    </div>
-
-                    <!-- Random Start Result -->
-                    <div class="result-card">
-                        <div class="result-title">
-                            <i class="fas fa-dice"></i>
-                            Random Start Point
-                        </div>
-                        <div class="result-value" id="startPointValue">0</div>
-                        <div class="result-description" id="startPointDescription">
-                            First element selected in your systematic sample
-                        </div>
-                    </div>
-
-                    <!-- Coverage Result -->
-                    <div class="result-card accent">
-                        <div class="result-title">
-                            <i class="fas fa-percentage"></i>
-                            Sampling Coverage
-                        </div>
-                        <div class="result-value" id="coverageValue">0%</div>
-                        <div class="result-description" id="coverageDescription">
-                            Percentage of population included in your sample
-                        </div>
-                    </div>
-
-                    <!-- Calculation Steps -->
-                    <div class="calculation-steps" id="calculationSteps">
-                        <div class="steps-header">
-                            <div class="steps-title">
-                                <i class="fas fa-list-ol"></i>
-                                Calculation Steps
-                            </div>
-                            <button class="btn btn-tertiary" id="toggleStepsBtn" style="padding: 8px 12px; font-size: 0.9rem;">
-                                <i class="fas fa-eye"></i> Show Steps
-                            </button>
-                        </div>
-                        <div class="steps-content" id="stepsContent">
-                            <!-- Steps will be dynamically added here -->
-                        </div>
-                    </div>
-
-                    <!-- Sampling Details -->
-                    <div class="sampling-details">
-                        <div class="details-grid">
-                            <div class="detail-item">
-                                <div class="detail-value" id="totalElements">0</div>
-                                <div class="detail-label">Total Elements</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-value" id="samplesSelected">0</div>
-                                <div class="detail-label">Samples Selected</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Formula Display -->
-                    <div class="formula-display">
-                        <div class="formula-title">
-                            <i class="fas fa-square-root-alt"></i>
-                            Formula Used
-                        </div>
-                        <div class="formula-equation">K = N ÷ n</div>
-                        <div class="formula-explanation">
-                            Where K is the sampling interval, N is the population size, 
-                            and n is the sample size. The result is rounded down to the 
-                            nearest whole number by default, or up if ceiling is applied.
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="footer-content">
-                <div class="developer-info">
-                    Developed by 
-                    <a href="https://www.mudasiribrahim.com/" target="_blank" class="developer-name" rel="noopener noreferrer">
-                        Mudasir Mohammed Ibrahim
-                    </a>
-                </div>
-                <div class="copyright" id="copyright">
-                    &copy; <span id="currentYear"></span> Systematic Sampling Calculator. All calculations performed locally in your browser.
-                </div>
-            </div>
-        </footer>
+      </div>
     </div>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <i class="fas fa-check-circle"></i>
-        <span id="toastMessage">Calculation completed successfully!</span>
-    </div>
+  </div>
+</div>
 
-    <script>
-        // Set current year for copyright
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+<!-- FOOTER -->
+<footer class="site-footer">
+  <span class="footer-copy">© <span id="footerYear"></span> Syssampler</span>
+  <div class="footer-links">
+    <a href="https://github.com/shinyhealthtools/systematicsampling/" target="_blank" rel="noopener noreferrer" class="footer-link">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="margin-right: 4px;">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+      </svg>
+      Source Code
+    </a>
+    <span class="footer-sep">•</span>
+    <span class="footer-credit">Site built by <a href="https://mudasiribrahim.github.io/gh/" target="_blank" rel="noopener noreferrer">Mudasir Mohammed Ibrahim</a></span>
+  </div>
+</footer>
 
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const themeText = document.getElementById('themeText');
-        const body = document.body;
+<!-- TOAST -->
+<div class="toast-wrap" id="toastWrap"></div>
 
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('systematicSamplerTheme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-            themeIcon.innerHTML = '<i class="fas fa-sun"></i>';
-            themeText.textContent = 'Light Mode';
-        }
+<script>
+  /* ─── THEME ─── */
+  const html = document.documentElement;
+  const saved = localStorage.getItem('gh-theme');
+  if (saved) html.setAttribute('data-theme', saved);
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                themeIcon.innerHTML = '<i class="fas fa-sun"></i>';
-                themeText.textContent = 'Light Mode';
-                localStorage.setItem('systematicSamplerTheme', 'dark');
-            } else {
-                themeIcon.innerHTML = '<i class="fas fa-moon"></i>';
-                themeText.textContent = 'Dark Mode';
-                localStorage.setItem('systematicSamplerTheme', 'light');
-            }
-        });
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('gh-theme', next);
+  });
 
-        // Toast Notification
-        function showToast(message, type = 'success') {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
-            
-            toast.className = 'toast';
-            toast.classList.add(type);
-            toastMessage.textContent = message;
-            toast.style.display = 'flex';
-            
-            setTimeout(() => {
-                toast.style.display = 'none';
-            }, 3000);
-        }
+  /* ─── FOOTER YEAR ─── */
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-        // Format number with commas
-        function formatNumber(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
+  /* ─── TOAST ─── */
+  function toast(msg, type = 'success', sub = '') {
+    const wrap = document.getElementById('toastWrap');
+    const el = document.createElement('div');
+    el.className = `toast ${type}`;
+    const icons = { success: '✓', error: '✕', info: 'ℹ' };
+    el.innerHTML = `<div class="toast-icon">${icons[type]||'ℹ'}</div><div class="toast-text"><strong>${msg}</strong>${sub ? `<span>${sub}</span>` : ''}</div>`;
+    wrap.appendChild(el);
+    setTimeout(() => { el.style.opacity = '0'; el.style.transform = 'translateX(20px)'; el.style.transition = '0.3s'; setTimeout(() => el.remove(), 300); }, 3000);
+  }
 
-        // Generate random number between min and max
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
+  /* ─── HELPERS ─── */
+  const fmt = n => n.toLocaleString();
+  const rand = (a, b) => Math.floor(Math.random() * (b - a + 1)) + a;
 
-        // Calculate K-Interval with or without ceiling
-        function calculateKInterval(N, n, applyCeiling = false) {
-            const exactValue = N / n;
-            
-            if (applyCeiling) {
-                return Math.ceil(exactValue);
-            } else {
-                return Math.floor(exactValue);
-            }
-        }
+  /* ─── CALCULATOR ─── */
+  function calculate() {
+    const N = parseInt(document.getElementById('popSize').value);
+    const n = parseInt(document.getElementById('sampSize').value);
+    const rsInput = document.getElementById('randStart').value;
+    const ceil = document.getElementById('ceilCheck').checked;
 
-        // Generate systematic sample
-        function generateSystematicSample(N, n, randomStart = null, K) {
-            const start = randomStart || getRandomInt(1, K);
-            const samples = [];
-            
-            for (let i = 0; i < n; i++) {
-                const sampleId = start + (i * K);
-                if (sampleId <= N) {
-                    samples.push(sampleId);
-                }
-            }
-            
-            return {
-                start: start,
-                samples: samples,
-                coverage: (samples.length / N) * 100
-            };
-        }
+    if (!N || !n || N < 1 || n < 1) { toast('Please enter valid values', 'error', 'Both N and n must be positive numbers'); return; }
+    if (n > N) { toast('Sample size exceeds population', 'error', 'n cannot be greater than N'); return; }
 
-        // Generate calculation steps
-        function generateCalculationSteps(N, n, exactValue, K, applyCeiling, randomStart) {
-            const steps = [];
-            
-            // Step 1: Input values
-            steps.push({
-                content: `Input values: Population size (N) = ${formatNumber(N)}, Sample size (n) = ${formatNumber(n)}`,
-                equation: `N = ${formatNumber(N)}, n = ${formatNumber(n)}`
-            });
-            
-            // Step 2: Basic calculation
-            steps.push({
-                content: `Calculate exact K-interval by dividing population size by sample size`,
-                equation: `K = N ÷ n = ${formatNumber(N)} ÷ ${formatNumber(n)} = ${exactValue.toFixed(2)}`
-            });
-            
-            // Step 3: Rounding decision
-            if (applyCeiling) {
-                steps.push({
-                    content: `Apply ceiling to round up to nearest whole number (since ceiling option is selected)`,
-                    equation: `⌈${exactValue.toFixed(2)}⌉ = ${K}`,
-                    note: `Ceiling rounds any decimal value up to the next whole number`
-                });
-            } else {
-                if (exactValue % 1 !== 0) {
-                    steps.push({
-                        content: `Apply floor function to round down to nearest whole number (default behavior)`,
-                        equation: `⌊${exactValue.toFixed(2)}⌋ = ${K}`,
-                        note: `Floor rounds any decimal value down to the previous whole number`
-                    });
-                } else {
-                    steps.push({
-                        content: `Exact value is already a whole number, no rounding needed`,
-                        equation: `K = ${K}`
-                    });
-                }
-            }
-            
-            // Step 4: Random start
-            if (randomStart) {
-                steps.push({
-                    content: `Using specified random start value`,
-                    equation: `Random start = ${formatNumber(randomStart)}`
-                });
-            } else {
-                steps.push({
-                    content: `Generate random start between 1 and K`,
-                    equation: `Random start = random integer between 1 and ${K} = ${getRandomInt(1, K)}`
-                });
-            }
-            
-            // Step 5: Sampling coverage
-            const coverage = ((n * K) / N) * 100;
-            steps.push({
-                content: `Calculate sampling coverage percentage`,
-                equation: `Coverage = (n × K) ÷ N × 100 = (${formatNumber(n)} × ${formatNumber(K)}) ÷ ${formatNumber(N)} × 100 = ${coverage.toFixed(1)}%`
-            });
-            
-            return steps;
-        }
+    const exact = N / n;
+    const K = ceil ? Math.ceil(exact) : Math.floor(exact);
 
-        // Display calculation steps
-        function displayCalculationSteps(steps) {
-            const stepsContent = document.getElementById('stepsContent');
-            stepsContent.innerHTML = '';
-            
-            steps.forEach((step, index) => {
-                const stepElement = document.createElement('div');
-                stepElement.className = 'step';
-                stepElement.innerHTML = `
-                    <div class="step-number">${index + 1}</div>
-                    <div class="step-content">
-                        <div>${step.content}</div>
-                        ${step.equation ? `<div class="step-equation">${step.equation}</div>` : ''}
-                        ${step.note ? `<div class="step-note">${step.note}</div>` : ''}
-                    </div>
-                `;
-                stepsContent.appendChild(stepElement);
-            });
-            
-            // Show the calculation steps section
-            document.getElementById('calculationSteps').classList.add('active');
-            
-            // Update toggle button text
-            document.getElementById('toggleStepsBtn').innerHTML = '<i class="fas fa-eye-slash"></i> Hide Steps';
-        }
+    if (K < 1) { toast('K-interval too small', 'error', 'Check your values'); return; }
 
-        // Toggle calculation steps visibility
-        function toggleCalculationSteps() {
-            const stepsSection = document.getElementById('calculationSteps');
-            const toggleBtn = document.getElementById('toggleStepsBtn');
-            
-            if (stepsSection.classList.contains('active')) {
-                stepsSection.classList.remove('active');
-                toggleBtn.innerHTML = '<i class="fas fa-eye"></i> Show Steps';
-            } else {
-                stepsSection.classList.add('active');
-                toggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Steps';
-            }
-        }
+    let rs = rsInput ? parseInt(rsInput) : rand(1, K);
+    if (rs < 1 || rs > K) { toast(`Random start must be 1–${K}`, 'error'); return; }
 
-        // Main Calculate Function
-        function calculateSampling() {
-            const N = parseInt(document.getElementById('populationSize').value) || 0;
-            const n = parseInt(document.getElementById('sampleSize').value) || 0;
-            const randomStartInput = document.getElementById('randomStart').value;
-            const randomStart = randomStartInput ? parseInt(randomStartInput) : null;
-            const applyCeiling = document.getElementById('applyCeiling').checked;
-            
-            // Validation
-            if (!N || !n) {
-                showToast('Please enter both population and sample size', 'error');
-                return;
-            }
-            
-            if (n > N) {
-                showToast('Sample size cannot exceed population size', 'error');
-                return;
-            }
-            
-            if (n <= 0 || N <= 0) {
-                showToast('Values must be greater than zero', 'error');
-                return;
-            }
-            
-            // Calculate exact K value
-            const exactValue = N / n;
-            
-            // Calculate K-interval (with or without ceiling)
-            const K = calculateKInterval(N, n, applyCeiling);
-            
-            // Validate random start if provided
-            if (randomStart && (randomStart < 1 || randomStart > K)) {
-                showToast(`Random start must be between 1 and ${K}`, 'error');
-                return;
-            }
-            
-            // Generate systematic sample
-            const result = generateSystematicSample(N, n, randomStart, K);
-            
-            // Update results display
-            document.getElementById('kIntervalValue').textContent = formatNumber(K);
-            
-            let roundingMethod = applyCeiling ? 'ceiling' : 'floor';
-            let roundingExplanation = '';
-            
-            if (exactValue % 1 !== 0) {
-                if (applyCeiling) {
-                    roundingExplanation = ` (rounded up from ${exactValue.toFixed(2)} using ceiling)`;
-                } else {
-                    roundingExplanation = ` (rounded down from ${exactValue.toFixed(2)} using floor)`;
-                }
-            }
-            
-            document.getElementById('kIntervalDescription').textContent = 
-                `Every ${formatNumber(K)}-th element will be selected from your population of ${formatNumber(N)} elements.${roundingExplanation}`;
-            
-            document.getElementById('startPointValue').textContent = formatNumber(result.start);
-            document.getElementById('startPointDescription').textContent = 
-                `The first element selected ${randomStart ? 'as specified' : 'at random'} from the first ${formatNumber(K)} elements.`;
-            
-            document.getElementById('coverageValue').textContent = result.coverage.toFixed(1) + '%';
-            document.getElementById('coverageDescription').textContent = 
-                `${result.samples.length} out of ${formatNumber(N)} elements (${result.coverage.toFixed(1)}%) will be sampled.`;
-            
-            // Update detail stats
-            document.getElementById('totalElements').textContent = formatNumber(N);
-            document.getElementById('samplesSelected').textContent = formatNumber(result.samples.length);
-            
-            // Generate and display calculation steps
-            const steps = generateCalculationSteps(N, n, exactValue, K, applyCeiling, randomStart);
-            displayCalculationSteps(steps);
-            
-            // Show results
-            document.getElementById('resultsPlaceholder').style.display = 'none';
-            document.getElementById('resultsDisplay').classList.add('active');
-            
-            // Show success toast with rounding info
-            let toastMessage = `K-interval calculated: ${formatNumber(K)}. ${result.samples.length} samples selected.`;
-            if (exactValue % 1 !== 0) {
-                toastMessage += applyCeiling ? ` (Ceiling applied: ${exactValue.toFixed(2)} → ${K})` : ` (Floor applied: ${exactValue.toFixed(2)} → ${K})`;
-            }
-            showToast(toastMessage);
-            
-            // Save to localStorage for persistence
-            saveCalculation(N, n, exactValue, K, applyCeiling, result.start, result.samples.length);
-        }
+    // Sample sequence
+    const samples = [];
+    for (let i = 0; i < n; i++) {
+      const id = rs + i * K;
+      if (id <= N) samples.push(id);
+    }
 
-        // Save calculation to localStorage
-        function saveCalculation(N, n, exactValue, K, applyCeiling, start, sampleCount) {
-            const calculations = JSON.parse(localStorage.getItem('samplingCalculations') || '[]');
-            calculations.unshift({
-                timestamp: new Date().toISOString(),
-                population: N,
-                sampleSize: n,
-                exactValue: exactValue,
-                kInterval: K,
-                applyCeiling: applyCeiling,
-                startPoint: start,
-                sampleCount: sampleCount,
-                coverage: ((sampleCount / N) * 100).toFixed(1)
-            });
-            
-            // Keep only last 5 calculations
-            if (calculations.length > 5) {
-                calculations.pop();
-            }
-            
-            localStorage.setItem('samplingCalculations', JSON.stringify(calculations));
-        }
+    const coverage = (samples.length / N) * 100;
 
-        // Reset all inputs
-        function resetAll() {
-            document.getElementById('populationSize').value = '1000';
-            document.getElementById('sampleSize').value = '100';
-            document.getElementById('randomStart').value = '';
-            document.getElementById('applyCeiling').checked = false;
-            
-            // Hide results and steps
-            document.getElementById('resultsPlaceholder').style.display = 'block';
-            document.getElementById('resultsDisplay').classList.remove('active');
-            document.getElementById('calculationSteps').classList.remove('active');
-            document.getElementById('toggleStepsBtn').innerHTML = '<i class="fas fa-eye"></i> Show Steps';
-            
-            showToast('All inputs have been reset', 'warning');
-        }
+    // Update UI
+    document.getElementById('rK').textContent = fmt(K);
+    document.getElementById('rKSub').textContent = exact % 1 !== 0 ? (ceil ? `⌈${exact.toFixed(2)}⌉ ceiling applied` : `⌊${exact.toFixed(2)}⌋ floor applied`) : 'Exact whole number';
+    document.getElementById('rStart').textContent = fmt(rs);
+    document.getElementById('rStartSub').textContent = rsInput ? 'User-specified' : 'Auto-generated';
+    document.getElementById('rCount').textContent = fmt(samples.length);
+    document.getElementById('rCountSub').textContent = `of ${fmt(N)} population`;
+    document.getElementById('rCov').textContent = coverage.toFixed(1) + '%';
+    document.getElementById('rCovSub').textContent = `${fmt(samples.length)} elements selected`;
 
-        // Event Listeners
-        document.getElementById('calculateBtn').addEventListener('click', calculateSampling);
-        document.getElementById('resetBtn').addEventListener('click', resetAll);
-        document.getElementById('toggleStepsBtn').addEventListener('click', toggleCalculationSteps);
+    // Steps
+    const stepsList = document.getElementById('stepsList');
+    const stepsData = [
+      { title: 'Define inputs', eq: `N = ${fmt(N)},  n = ${fmt(n)}`, note: '' },
+      { title: 'Compute exact K', eq: `K = N ÷ n  =  ${fmt(N)} ÷ ${fmt(n)}  =  ${exact.toFixed(4)}`, note: '' },
+      { title: `Apply ${ceil ? 'ceiling' : 'floor'} rounding`, eq: exact % 1 !== 0 ? `${ceil ? '⌈' : '⌊'}${exact.toFixed(4)}${ceil ? '⌉' : '⌋'} = ${K}` : `Already whole: K = ${K}`, note: ceil ? 'Rounds up to next integer' : 'Rounds down to previous integer' },
+      { title: 'Set random start', eq: `r = ${rs}  (1 ≤ r ≤ K=${K})`, note: rsInput ? 'User-provided value' : 'Randomly generated' },
+      { title: 'Build sequence', eq: `r, r+K, r+2K, … → ${samples.slice(0,4).map(fmt).join(', ')}${samples.length > 4 ? ' …' : ''}`, note: `${samples.length} elements total` },
+      { title: 'Calculate coverage', eq: `Coverage = ${samples.length} ÷ ${N} × 100 = ${coverage.toFixed(2)}%`, note: '' }
+    ];
 
-        // Enter key support for inputs
-        const inputs = ['populationSize', 'sampleSize', 'randomStart'];
-        inputs.forEach(inputId => {
-            document.getElementById(inputId).addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') calculateSampling();
-            });
-        });
+    stepsList.innerHTML = stepsData.map((s, i) => `
+      <div class="step-row" style="animation-delay:${i * 0.04}s">
+        <div class="step-num">${i + 1}</div>
+        <div class="step-content">
+          <p>${s.title}</p>
+          <div class="step-eq">${s.eq}</div>
+          ${s.note ? `<div class="step-note">${s.note}</div>` : ''}
+        </div>
+      </div>
+    `).join('');
 
-        // Initialize on load
-        window.addEventListener('load', () => {
-            // Check for previous calculation
-            const calculations = JSON.parse(localStorage.getItem('samplingCalculations') || '[]');
-            if (calculations.length > 0) {
-                const lastCalc = calculations[0];
-                document.getElementById('populationSize').value = lastCalc.population;
-                document.getElementById('sampleSize').value = lastCalc.sampleSize;
-                document.getElementById('applyCeiling').checked = lastCalc.applyCeiling || false;
-                
-                // Auto-calculate if both values are present
-                if (lastCalc.population && lastCalc.sampleSize) {
-                    setTimeout(calculateSampling, 300);
-                }
-            }
-            
-            // Show welcome message
-            setTimeout(() => {
-                showToast('Welcome! Enter your parameters to calculate K-interval. Check the "Apply ceiling" option to round up decimals.');
-            }, 1000);
-        });
-    </script>
+    document.getElementById('resPlaceholder').style.display = 'none';
+    document.getElementById('resOutput').style.display = 'block';
+
+    toast('Calculation complete', 'success', `K = ${K},  start = ${rs},  ${samples.length} samples`);
+  }
+
+  function resetAll() {
+    document.getElementById('popSize').value = '1000';
+    document.getElementById('sampSize').value = '100';
+    document.getElementById('randStart').value = '';
+    document.getElementById('ceilCheck').checked = false;
+    document.getElementById('resPlaceholder').style.display = 'block';
+    document.getElementById('resOutput').style.display = 'none';
+    const body = document.getElementById('stepsBody');
+    body.classList.remove('open');
+    document.getElementById('stepsToggle').classList.remove('open');
+    toast('Reset complete', 'info');
+  }
+
+  /* ─── STEPS TOGGLE ─── */
+  document.getElementById('stepsToggle').addEventListener('click', () => {
+    const h = document.getElementById('stepsToggle');
+    const b = document.getElementById('stepsBody');
+    h.classList.toggle('open');
+    b.classList.toggle('open');
+  });
+
+  document.getElementById('calcBtn').addEventListener('click', calculate);
+  document.getElementById('resetBtn').addEventListener('click', resetAll);
+
+  ['popSize','sampSize','randStart'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+  });
+
+  // Auto-run on load
+  setTimeout(calculate, 400);
+</script>
 </body>
 </html>
